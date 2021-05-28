@@ -1,14 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:trianglelist/painter_triangle.dart' as tripainter;
-import 'package:trianglelist/ruled_line_textfield.dart';
-import 'package:trianglelist/touch_painter.dart';
+import 'package:trianglelist/app_triangle_painter.dart' as tripainter;
+import 'package:trianglelist/app_ruled_line_textfield.dart';
+import 'package:trianglelist/app_touch_painter.dart';
 import 'app_todo.dart';
-import 'body2.dart';
+import 'app_custom_paint.dart';
 
 void main() {
-  runApp( touchPainterApp() );
+  runApp( MyApp() );
 }
 
 class MyApp extends StatelessWidget {

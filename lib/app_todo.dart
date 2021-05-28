@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'body2.dart';
+import 'app_custom_paint.dart';
 
 // TOPページ起動
 class TodoApp extends StatelessWidget {
