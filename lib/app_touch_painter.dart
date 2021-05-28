@@ -40,9 +40,18 @@ class _PointerDrawingWidgetState extends State<PointerDrawingWidget> {
         child: CustomPaint(
           painter: MyPainter(_points),
           // タッチを有効にするため、childが必要
-          child: Center(),
+          child: Center(
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.person),
+                  hintText: 'Input Length A',
+                  labelText: 'Length A:',
+                  border: OutlineInputBorder()
+              )
+          ),
         ),
       ),
+    ),
       floatingActionButton: FloatingActionButton(
         // 点のクリアボタン
         onPressed: _clearPoints,

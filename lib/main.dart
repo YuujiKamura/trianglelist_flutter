@@ -8,7 +8,7 @@ import 'app_todo.dart';
 import 'app_custom_paint.dart';
 
 void main() {
-  runApp( MyApp() );
+  runApp( touchPainterApp() );
 }
 
 class MyApp extends StatelessWidget {
