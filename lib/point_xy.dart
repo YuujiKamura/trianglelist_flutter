@@ -1,34 +1,29 @@
 
-class PointXY {
-  double x_ = 0;
-  double y_ = 0;
+import 'dart:math' as math;
+import 'dart:ui' as ui;
 
-  PointXY(double x, double y){
-    x_ = x;
-    y_ = y;
-  }
+class PointXY extends ui.Offset {
 
-  PointXY.point( PointXY p ){
-    x_ = p.x_;
-    y_ = p.y_;
-  }
+  PointXY( double _x, double _y ) : super(_x, _y){ }
+
+  PointXY.p( PointXY p ) : super( p.dx, p.dy ){ }
 
   PointXY clone(){
-    return new PointXY.point( this );
+    return new PointXY.p( this );
   }
-
+/*
   void add( PointXY p1 ){
     x_ = x_ + p1.x_;
     y_ = y_ + p1.y_;
   }
 
-  void add_xy( double x, double y ){
-    x_ = x_ + x;
-    y_ = y_ + y;
+  void add_xy( double _x, double _y ){
+    x_ = x_ + _x;
+    y_ = y_ + _y;
   }
 
-  PointXY plus_xy( double x, double y ){
-    return PointXY( x_+x, y_+y );
+  PointXY plus_xy( double _x, double _y ){
+    return PointXY( x_+_x, y_+_y );
   }
 
   void addminus( PointXY p1 ){
@@ -36,29 +31,43 @@ class PointXY {
     y_ = y_ - p1.y_;
   }
 
-  void set( PointXY p ){
-    x_ = p.x_;
-    y_ = p.y_;
+  PointXY set( PointXY p ){
+    return PointXY.point( p );
   }
 
   PointXY flip( PointXY p2 ){
     PointXY p3 = new PointXY.point(p2);
-    this.set( p2 );
+    this = set( p2 );
     return p3;
   }
+*/
 
   PointXY min( PointXY p){
-    PointXY sp = PointXY(x_,y_);
-    if( x_ > p.x_ ) sp.x_ = p.x_;
-    if( y_ > p.y_ ) sp.y_ = p.y_;
-    return sp;
+    double xx = dx;
+    double yy = dy;
+    if( dx > p.dx ) xx = p.dx;
+    if( dy > p.dy ) yy = p.dy;
+    return PointXY( xx, yy );
   }
 
   PointXY max( PointXY p){
-    PointXY sp = PointXY(x_,y_);
-    if( x_ < p.x_ ) sp.x_ = p.x_;
-    if( y_ < p.y_ ) sp.y_ = p.y_;
-    return sp;
+    double xx = dx;
+    double yy = dy;
+    if( dx < p.dx ) xx = p.dx;
+    if( dy < p.dy ) yy = p.dy;
+    return PointXY( xx, yy );
+  }
+
+  PointXY minus(PointXY p) {
+    return PointXY(dx - p.dx, dy - p.dy);
+  }
+
+  double innerProduct(PointXY point) {
+    return dx * point.dx + dy * point.dy;
+  }
+
+  double magnitude() {
+    return math.sqrt(dx * dx + dy * dy);
   }
 
 }
